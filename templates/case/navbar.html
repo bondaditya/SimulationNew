@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header" align="center">
+      <a class="navbar-brand" href="#">Global Supply Chain Management</a>
+    </div>
+    <ul class="nav navbar-nav" align="center">
+      <li><a href="{% url 'vendor:intro' %}">Intoduction</a></li>
+      <li><a href="{% url 'vendor:design' %}">Design</a></li>
+      <li><a href="{% url 'vendor:forcastupdate' id=1 %}">Forcast </a></li>
+      <li><a href="{% url 'vendor:production'  %}">Production</a></li>
+      <li><a href="{% url 'vendor:board'  %}">Board</a></li>
+    </ul>
+  </div>
+</nav>

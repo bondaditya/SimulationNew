@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Vendor | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+<div class="row">
+<h2> Production Room</h2>
+</div>
+<div class="row">
+<h3> Yearly Planning </h3>
+</div>
+<div class="row">
+<h4>Actual Demand | Projections <small>in thousands per month</small></h4>
+</div>
+<div class="row">
+<div class="col-md-12">
+<table>
+  <thead>
+    <tr>
+      <th> Jan</th>
+      <th> Feb</th>
+      <th> Mar</th>
+      <th> Apr</th>
+      <th> May</th>
+      <th> Jun</th>
+      <th> Jul</th>
+      <th> Aug</th>
+      <th> Sep</th>
+      <th> Oct</th>
+      <th> Nov</th>
+      <th> Dec</th>
+    </tr>
+    {% for item in vendor %}
+    <tr>
+        <th>{{ item.name }}</th>
+        <td>{{ item.monthly_order }}</td><td><a href="{% url 'vendor:supplyupdate' id=item.id %}">Update</a></td>  
+        <td>{{ item.unit_cost }}</td>
+        <td>{{ item.total }}</td>
+      
+      
+    </tr>
+   {% endfor %}
+    
+
+
+
+  </thead>
+
+
+
+
+</table>
+</div>
+</div>
+
+
+<div class="row">
+<div class="col-md-8">
+<table class="table">
+  <thead class="thead-default">
+
+  <tr>     
+    
+      <th>Employee</th>
+      <th>Demand Forcast</th>
+      <th>Unit Cost</th>
+      <th>Total</th>
+    </tr>
+  {% for item in vendor %}
+    <tr>
+        <th>{{ item.name }}</th>
+        <td>{{ item.monthly_order }}</td><td><a href="{% url 'vendor:supplyupdate' id=item.id %}">Update</a></td>  
+        <td>{{ item.unit_cost }}</td>
+        <td>{{ item.total }}</td>
+      
+      
+    </tr>
+   {% endfor %} 
+  </thead>
+  <tbody>
+  
+</tbody>
+</table>
+</div>
+</div>
+</div>    
+    
+
+   
+    
+  </tbody>
+</table>    
+
+
+
+
+
+{% endblock content %}

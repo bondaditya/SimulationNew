@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Vendor | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div class='row'>
+    <div class='col-sm-8 col-sm-offset-2'>
+    
+    </div>
+    </div>
+
+<table class="table">
+  <thead class="thead-default">
+
+  <tr>     
+    
+      <th>Employee</th>
+      <th>Demand Forcast</th>
+      <th>Unit Cost</th>
+      <th>Total</th>
+    </tr>
+  {% for item in vendor %}
+    <tr>
+        <th>{{ item.name }}</th>
+        <td>{{ item.monthly_order }}</td><td><a href="{% url 'vendor:update' id=item.id %}">Update</a></td>  
+        <td>{{ item.unit_cost }}</td>
+        <td>{{ item.total }}</td>
+      
+      
+    </tr>
+   {% endfor %} 
+  </thead>
+  <tbody>
+  
+    
+    
+
+   
+    
+  </tbody>
+</table>    
+
+
+
+
+
+{% endblock content %}

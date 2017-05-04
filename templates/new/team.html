@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Introduction | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+<div class="raw">
+<h1> Introduction </h1>
+<div class="col-md-8">
+<h2>Meet the team</h2>
+<p> These are the rockstars who help you run the company</p>
+{% include 'new/slider.html' %} 
+</div>
+<div class="col-md-4">
+
+<a href="{% url 'vendor:design' %}"> <h1>Choose Design Options </h1> </a></li>
+
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<img src="https://www.dropbox.com/s/98sfkemn1xsk1s5/logo.png?dl=0" alt="..." >
+<img src="static/img/logo.png" alt="...">
+<img src="logo.png" alt="..." class="img-thumbnail">
+<img src="..." alt="..." class="img-thumbnail">
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+{% endblock content %}

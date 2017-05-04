@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+
+
+{% include 'head_css.html' %}
+    <body>
+    {% if user.is_authenticated %}
+    {% include 'case/navbar.html' %}
+
+    {% else %}
+    {% include 'case/case.html' %}
+    {% endif %}
+    
+    
+    
+            {% block content %}
+            {% endblock %}
+            
+
+
+
+{% include "javascript.html" %}
+    
+    <script>
+    $(document).ready(function(){
+        {% block jquery %}
+        {% endblock %}
+    });
+    </script>
+
+</html>

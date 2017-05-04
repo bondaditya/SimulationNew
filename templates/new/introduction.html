@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Introduction | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div class="container">
+<div class="raw">
+<h1> Introduction </h1>
+<div class="col-md-8">
+<h3> Introduction to play the game </h3>
+<a href="#"> <h3>Download the play guide</h3> </a></li>
+<p> <b>{{ user}}</b> I am go to say this once but I'll also repeat this again and again. The love for pudina is real and I wanna be have malai kulfi.I am go to say this once but I'll also repeat this again and again. The love for pudina is real and I wanna be have malai kulfi.I am go to say this once but I'll also repeat this again and again. The love for pudina is real and I wanna be have malai kulfi.</p>
+</div>
+<div class="col-md-4">
+
+<a href="{% url 'vendor:team' %}"> <h1>Start the simulation </h1> </a></li>
+
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<h3>Problem facing supply chain managers.</h3>
+{% include 'new/slider.html' %} 
+</div>
+<div class="col-md-8">
+<h3>Your First Days as Supply Manager.</h3>
+{% include 'new/slider.html' %} 
+</div>
+
+
+
+
+
+
+
+{% endblock content %}
