@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block jquery %}
+
+
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+
+var style = "{{ product.style }}";
+var storage = "{{ product.durability }}";
+var durability = "{{ product.durability }}";
+var extended_battery = "{{ product.extended_battery }}";
+var vote1 = "No";
+var vote2 = "No";
+var vote3 = "No";
+var vote4 = "No";
+var comment1 = "fghjkl; fghjkl fghjk";
+var comment2 = "fghj ghjk fghj fghj fghj";
+var comment3 = "ghjk ghjk fgh g ";
+var comment4 = "fghjkfghj fghjk dfghjk dfghj";
+
+
+if(style==="True"){
+  vote1 = "Yes";
+  comment1 = "aditya hkjghjk fgjhghj ghjhgjk ghghjk ghjk ghhjkjl ghhjjk ghjh";
+};
+
+if(storage==="True"){
+  vote2 = "Yes";
+  comment2 = "aditya hkjghjk fgjhghj ghjhgjk ghghjk ghjk ghhjkjl ghhjjk ghjh";
+};
+if(durability==="True"){
+  vote3 = "Yes";
+  comment3 = "aditya hkjghjk fgjhghj ghjhgjk ghghjk ghjk ghhjkjl ghhjjk ghjh";
+};
+if(extended_battery==="True"){
+  vote4 = "Yes";
+  comment4 = "aditya hkjghjk fgjhghj ghjhgjk ghghjk ghjk ghhjkjl ghhjjk ghjh";
+};
+
+$("#board1").click(function(){
+  $("#vote1").html(vote1);
+  $("#p1").html(comment1);
+});
+$("#board2").click(function(){
+  $("#vote2").html(vote1);
+  $("#p2").html(comment1);
+});
+$("#board3").click(function(){
+  $("#vote3").html(vote1);
+  $("#p3").html(comment1);
+});
+$("#board4").click(function(){
+  $("#vote4").html(vote1);
+  $("#p4").html(comment1);
+});
+
+
+
+
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+<div class="row">
+
+<div class="col-md-6">
+    <h1> Boardroom </h1>
+<h3> Board Review </h3>
+
+<p> <b>{{ user}}</b>        Your company's board will now discuss your performance. Each board member has a particular area of interest and will give you some advice in that area.
+</p><p>
+    It pays to listen to your board members, as they will give valuable advice and look for improvements each year.</p>
+</div>
+<div class="col-md-6" align="center" >
+<h2> Votes </h2>
+<table class="table">
+  <thead>
+    <tr>
+      
+      <th>Board Member</th>
+      <th>Vote</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th >Jason</th>
+      <td id="vote1">-</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Roy</th>
+      <td id="vote2">-</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Shweta</th>
+      <td id="vote3">-</td>
+      
+    </tr>
+     <tr>
+      <th scope="row">Bihari</th>
+      <td id="vote4">-</td>
+      
+    </tr>
+  </tbody>
+</table>
+
+
+</div>
+</div>
+
+
+<div class="row" style="padding:50px;">
+
+<div class="col-md-3">
+    <figure class="figure">
+  <img src='{% static "img/michale.png" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><button id="board1" type="button" class="btn btn-primary"><h4>Jason</h4></button></figcaption>
+  <p id="p1">I am aditya I am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am aditya </p>
+</figure>
+
+</div>
+<div class="col-md-3">
+
+    <figure class="figure">
+  <img src='{% static "img/grands.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><button id="board2" type="button" class="btn btn-primary"><h4>Roy</h4></button></figcaption>
+  <p id="p2">I am aditya I am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am aditya </p>
+</figure>
+
+    <p></p>
+</div>
+
+<div class="col-md-3">
+    <figure class="figure">
+  <img src='{% static "img/gob.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><button id="board3" type="button" class="btn btn-primary"><h4>Shweta</h4></button></figcaption>
+  <p id="p3">I am aditya I am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am aditya </p>
+</figure>
+
+    </div>
+<div class="col-md-3">
+    <figure class="figure">
+  <img src='{% static "img/bob.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><button id="board4" type="button" class="btn btn-primary"><h4>Bihari</h4></button></figcaption>
+  <p id="p4">I am aditya I am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am adityaI am aditya </p>
+</figure>
+
+
+
+</div>
+
+</div>
+
+
+{% endblock content %}

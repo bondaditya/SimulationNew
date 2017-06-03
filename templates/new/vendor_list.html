@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Videos | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div class='row'>
+    <div class='col-sm-8 col-sm-offset-2'>
+    <h1>Hi</h1>
+    
+
+    {% if request.GET.q %}
+        <p>You searched for <b>{{ request.GET.q }}</b></p>
+    {% endif %}
+        <ul> 
+        {% for item in object_list %}
+            <li>{{ item.name }}</a></li>
+            <li>{{ item.cost_index }}</a></li>
+            <li>{{ item.unit_cost }}</a></li>
+            <li>{{ item.delivery_index }}</a></li>
+            <li>{{ item.vendor_cost }}</a></li>
+            <li>{{ item.total }}</a></li>
+            <li>{{ item.vendor_cost }}</a></li>
+
+            {% empty %}
+            <li>No item found</li>
+        {% endfor %}
+    </ul>
+    </div>
+    </div>
+
+{% endblock content %}

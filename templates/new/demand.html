@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+<script>
+    
+{% block jquery %}
+
+
+{% endblock %}
+   
+</script>
+
+{% block title %} Demand | {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+
+<input type="checkbox" name="vehicle" value="Bike"> Style<br>
+<input type="checkbox" name="vehicle" value="Bike"> Flavour<br>
+<input type="checkbox" name="vehicle" value="Bike"> Marketing<br>
+<input type="checkbox" name="vehicle" value="Bike"> Discount<br>
+
+
+<div class='row'>
+    
+<table class="table">
+  <thead class="thead-default">
+
+  <tr>
+      
+    
+      <th>Employee</th>
+      <th>Monthly Demand Forcast</th>
+      <th>Total Demand</th>
+      <th>Update</th>
+      <th>Style</th>
+      <th>Flavour</th>
+      <th>Discount</th>
+      <th>Marketing</th>
+    </tr>
+  {% for item in demand %}
+    <tr>
+        <th>{{ item.employee_name }}</th>
+      	
+      	<td>{{ item.monthly_demand }}</td>
+      	<td>{{ item.demand }}</td><td><a href="{% url 'vendor:d-update' id=item.id %}">Update</a></td>
+      	<td>{{ item.monthly_demand_flavour }}</td>
+      	<td>{{ item.monthly_demand_style }}</td>
+      	<td>{{ item.monthly_demand_marketing }}</td>
+      	<td>{{ item.monthly_demand_discount }}</td>
+      	<!-- <li><input type="checkbox" name="Malai">Malai</li> -->
+      
+      
+    </tr>
+   {% endfor %} 
+  </thead>
+  <tbody>
+</tbody>
+</table>  
+</div>
+
+
+
+{% endblock content %}

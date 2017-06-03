@@ -1,0 +1,635 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+{% block title %}Vendor | {{ block.super }}{% endblock title %}
+
+{% block jquery %}
+
+
+function setCookie(name, value){
+  // Set cookie to `namevalue;`
+  // Won't overwrite existing values with different names
+  document.cookie = name + value + ';';
+}
+
+function getCookie(name){
+  // Split by `;`
+  var cookie = document.cookie.split(";");
+  
+  // iterate over cookie array
+  for(var i  = 0; i < cookie.length; i++){
+    var c = cookie[i];
+    // if it contains string "click"
+    if(/click/.test(c))
+       return true;
+  }
+  // cookie does not exist
+  return false;
+}
+
+var clicked = getCookie("click") || false;
+var update2 = document.getElementById("update2");
+var update3 = document.getElementById("update3");
+var update4 = document.getElementById("update4");
+
+
+if (clicked) update2.disabled = true;
+if (clicked) update3.disabled = true;
+if (clicked) update4.disabled = true;
+
+
+
+update2.addEventListener("click", function(){
+  setCookie("click", "true");
+  update2.disabled = true;
+  
+}, false);
+update3.addEventListener("click", function(){
+  setCookie("click", "true");
+  update3.disabled = true;
+  
+}, false);
+update4.addEventListener("click", function(){
+  setCookie("click", "true");
+  update4.disabled = true;
+  
+}, false);
+
+
+
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+
+
+var vendor_demand1 = parseInt({{ vendor.monthly_order1 }}); 
+var vendor_demand2 = parseInt({{ vendor.monthly_order2 }});
+var vendor_demand3 = parseInt({{ vendor.monthly_order3 }});
+var unit_cost1 = 110;
+var unit_cost2 = 110;
+var unit_cost3 = 120;
+var setup_cost1 = 1000000; if(vendor_demand1==0){setup_cost1==0}; 
+var setup_cost2 = 2000000; if(vendor_demand2==0){setup_cost2==0};
+var setup_cost3 = 2000000; if(vendor_demand3==0){setup_cost3==0};
+var setup_cost = setup_cost1+setup_cost2+setup_cost3;
+
+
+var change_count1 = parseInt({{ vendor.mod_count }});
+var change_count2 = parseInt({{ vendor2.mod_count }});
+var change_count3 = parseInt({{ vendor3.mod_count }});
+var change_count4 = parseInt({{ vendor4.mod_count }});
+var change_cost = ((change_count1-1)+(change_count2)+(change_count3)+(change_count4))*1000000; alert(change_cost);
+
+
+var stylish = "{{ product.style }}"; 
+var storage = "{{ product.storage }}";
+var battery = "{{ product.extended_battery }}";
+var durability = "{{ product.durability }}";
+var unit_price = parseInt({{ product.unit_price }});
+var markdown_price = parseInt({{ product.markdown_price }}); 
+var inventory_cost = parseInt({{ product.inventory_cost }});
+var value_stylish = 0; 
+var value_storage = 0;
+var value_battery = 0;
+var value_durability = 0;
+
+
+
+var actual_demand1 = {{ vendor.actual_demand1|floatformat:"0" }}; 
+var actual_demand2 = {{ vendor.actual_demand2|floatformat:"0" }}; 
+var actual_demand3 = {{ vendor.actual_demand3|floatformat:"0" }}; 
+var actual_demand4 = {{ vendor2.actual_demand4|floatformat:"0" }}; 
+var actual_demand5 = {{ vendor2.actual_demand5|floatformat:"0" }}; 
+var actual_demand6 = {{ vendor2.actual_demand6|floatformat:"0" }}; 
+var actual_demand7 = {{ vendor3.actual_demand7|floatformat:"0" }}; 
+var actual_demand8 = {{ vendor3.actual_demand8|floatformat:"0" }}; 
+var actual_demand9 = {{ vendor3.actual_demand9|floatformat:"0" }}; 
+var actual_demand10 = {{ vendor4.actual_demand10|floatformat:"0" }};
+var actual_demand11 = {{ vendor4.actual_demand11|floatformat:"0" }};
+var actual_demand12 = {{ vendor4.actual_demand12|floatformat:"0" }};
+ 
+if(stylish==="True"){
+
+var value_stylish = 1;
+}
+
+if(storage==="True"){
+var value_storage = 1;
+}
+if(battery==="True"){
+var value_battery = 1;  
+
+}
+
+if(durability==="True"){
+var value_durability = 1;  
+}
+var inventory1 = {{ vendor.inventory1|floatformat:"0" }}; 
+var inventory2 = {{ vendor.inventory2|floatformat:"0" }};
+var inventory3 = {{ vendor.inventory3|floatformat:"0" }};
+var inventory4 = {{ vendor2.inventory4|floatformat:"0" }};
+var inventory5 = {{ vendor2.inventory5|floatformat:"0" }};
+var inventory6 = {{ vendor2.inventory6|floatformat:"0" }};
+var inventory7 = {{ vendor3.inventory7|floatformat:"0" }};
+var inventory8 = {{ vendor3.inventory8|floatformat:"0" }};
+var inventory9 = {{ vendor3.inventory9|floatformat:"0" }};
+var inventory10 = {{ vendor4.inventory10|floatformat:"0" }};
+var inventory11 = {{ vendor4.inventory11|floatformat:"0" }};
+var inventory12 = {{ vendor4.inventory12|floatformat:"0" }};
+total_inventory = inventory1+inventory2+inventory3+inventory4+inventory5+inventory6+inventory7+inventory8+inventory9+inventory10
++inventory11+inventory12;
+var updated_price = unit_price+(value_stylish*12+value_storage*5+value_battery*15+value_durability*20); 
+
+<!-- Cost Values
+ -->
+var updated_cost1 = unit_cost1+(value_stylish*6+value_storage*3+value_battery*5+value_durability*8); 
+var updated_cost2 = unit_cost2+(value_stylish*6+value_storage*3+value_battery*5+value_durability*8); 
+var updated_cost3 = unit_cost3+(value_stylish*6+value_storage*3+value_battery*5+value_durability*8);
+var total_vendor_cost= 12*(updated_cost1*vendor_demand1+updated_cost2*vendor_demand2+updated_cost3*vendor_demand3)*1000;
+
+var total_inventory_cost = total_inventory*inventory_cost*1000; 
+var sum = total_vendor_cost+total_inventory_cost; 
+total_cost = sum+setup_cost+change_cost;
+
+
+markdown_price = markdown_price +(value_stylish*4+value_storage*2+value_battery*1+value_durability*5); 
+
+total_demand = actual_demand1+actual_demand2+actual_demand3+actual_demand4+actual_demand5+actual_demand6+actual_demand7+actual_demand8
++actual_demand9+actual_demand10+actual_demand11+actual_demand12;
+
+var sales = total_demand*updated_price*1000; 
+
+var markdown_sales = markdown_price+total_inventory*1000;  
+var total_sales = (sales+markdown_sales); 
+
+var gross_margin = total_sales-total_cost;
+var percentage_margin = Math.round(((gross_margin)*100)/(total_cost));
+
+sales = numeral(sales).format('$0,0');
+markdown_sales=numeral(markdown_sales).format('$0,0');
+total_sales=numeral(total_sales).format('$0,0')
+total_vendor_cost = numeral(total_vendor_cost).format('$0,0'); 
+total_inventory_cost = numeral(total_inventory_cost).format('$0,0');
+sum=numeral(sum).format('$0,0');
+setup_cost = numeral(setup_cost).format('$0,0');
+change_cost = numeral(change_cost).format('$0,0');
+total_cost = numeral(total_cost).format('$0,0');
+gross_margin = numeral(gross_margin).format('$0,0');
+
+
+
+
+
+
+
+$(document).ready(function(){
+	Highcharts.chart('graph', {
+    data: {
+        table: 'graphtable'
+    },
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Vendors: Click on the property to see comparision'
+    },
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: 'Units'
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+        }
+    }
+
+});
+
+
+});
+
+
+
+
+
+    
+    $("#quarter1").click(function(){
+        $("#Jan2").html(actual_demand1);
+        $("#Feb2").html(actual_demand2);
+        $("#Mar2").html(actual_demand3);
+        $("#Jan3").html(inventory1);
+        $("#Feb3").html(inventory2);
+        $("#Mar3").html(inventory3);
+        $("#quarter2").show();
+        $("#update2").show();
+        
+    });
+    $("#update2").click(function(){
+       window.location = "{% url 'vendor:supplyupdate2' pk=request.user.id %}" 
+    });
+    $("#quarter2").click(function(){
+        $("#Apr2").html(actual_demand4);
+        $("#May2").html(actual_demand5);
+        $("#Jun2").html(actual_demand6);
+        $("#Apr3").html(inventory4);
+        $("#May3").html(inventory5);
+        $("#Jun3").html(inventory6);
+        $("#quarter3").show();
+        $("#update3").show();
+    });
+    $("#update3").click(function(){
+       window.location = "{% url 'vendor:supplyupdate3' pk=request.user.id %}" 
+    });
+    $("#quarter3").click(function(){
+        $("#Jul2").html(actual_demand7);
+        $("#Aug2").html(actual_demand8);
+        $("#Sep2").html(actual_demand9);
+        $("#Jul3").html(inventory7);
+        $("#Aug3").html(inventory8);
+        $("#Sep3").html(inventory9);
+        $("#quarter4").show();
+        $("#update4").show();
+    });
+    $("#update4").click(function(){
+       window.location = "{% url 'vendor:supplyupdate4' pk=request.user.id %}" 
+    });
+    $("#quarter4").click(function(){
+        $("#Oct2").html(actual_demand10);
+        $("#Nov2").html(actual_demand11);
+        $("#Dec2").html(actual_demand12);
+        $("#Oct3").html(inventory10);
+        $("#Nov3").html(inventory11);
+        $("#Dec3").html(inventory12);
+        $("#Sales").html(sales);
+        $("#MSales").html(markdown_sales);
+        $("#TSales").html(total_sales);
+        $("#PCost").html(total_vendor_cost);
+        $("#Sum").html(sum);
+        $("#ICost").html(total_inventory_cost);
+        $("#SCost").html(setup_cost);
+        $("#CCost").html(change_cost);
+        $("#TTCost").html(total_cost);
+        $("#GMargin").html(gross_margin);
+        $("#PMargin").html(percentage_margin);
+
+        
+
+    });
+    
+
+
+
+
+
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+<div class="row">
+<div id="t1" class="col-md-8">
+<table class="table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Jan</th>
+      <th>Feb</th>
+      <th>Mar</th>
+      <th>Apr</th>
+      <th>May</th>
+      <th>Jun</th>
+      <th>Jul</th>
+      <th>Aug</th>
+      <th>Sep</th>
+      <th>Oct</th>
+      <th>Nov</th>
+      <th>Dec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td scope="row">Production Order</td>
+      <td id="Jan1">{{ vendor.monthly_demand1 }}</td>
+      <td id="Feb1">{{ vendor.monthly_demand1 }}</td>
+      <td id="Mar1">{{ vendor.monthly_demand1 }}</td>
+      <td id="Apr1">{{ vendor2.monthly_demand2 }}</td>
+      <td id="May1">{{ vendor2.monthly_demand2 }}</td>
+      <td id="Jun1">{{ vendor2.monthly_demand2 }}</td>
+      <td id="Jul1">{{ vendor3.monthly_demand3 }}</td>
+      <td id="Aug1">{{ vendor3.monthly_demand3 }}</td>
+      <td id="Sep1">{{ vendor3.monthly_demand3 }}</td>
+      <td id="Oct1">{{ vendor4.monthly_demand4 }}</td>
+      <td id="Nov1">{{ vendor4.monthly_demand4 }}</td>
+      <td id="Dec1">{{ vendor4.monthly_demand4 }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Actual/Estimated Demand</th>
+      <td id="Jan2">{{ forcast.forcast }}</td>
+      <td id="Feb2">{{ forcast.forcast }}</td>
+      <td id="Mar2">{{ forcast.forcast }}</td>
+      <td id="Apr2">{{ forcast.forcast }}</td>
+      <td id="May2">{{ forcast.forcast }}</td>
+      <td id="Jun2">{{ forcast.forcast }}</td>
+      <td id="Jul2">{{ forcast.forcast }}</td>
+      <td id="Aug2">{{ forcast.forcast }}</td>
+      <td id="Sep2">{{ forcast.forcast }}</td>
+      <td id="Oct2">{{ forcast.forcast }}</td>
+      <td id="Nov2">{{ forcast.forcast }}</td>
+      <td id="Dec2">{{ forcast.forcast }}</td>
+    </tr>
+    <tr>
+      <th scope="row">Inventory</th>
+      <td id="Jan3">-</td>
+      <td id="Feb3">-</td>
+      <td id="Mar3">-</td>
+      <td id="Apr3">-</td>
+      <td id="May3">-</td>
+      <td id="Jun3">-</td>
+      <td id="Jul3">-</td>
+      <td id="Aug3">-</td>
+      <td id="Sep3">-</td>
+      <td id="Oct3">-</td>
+      <td id="Nov3">-</td>
+      <td id="Dec3">-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+<div class="col-md-4">
+
+
+
+  
+<p>Click the see the actual demand</p>
+<button id="quarter1" >Quarte1</button>
+<button class="btn btn-primary" role="button" id="update2" style="display: none;" >Update Order for Q2</button>
+
+<button id="quarter2" style="display: none;">Quarter2</button>
+<button class="btn-default" id="update3" style="display: none;" >Update Order for Q3</button> 
+<button id="quarter3" style="display: none;">Quarter3</button>
+<button class="btn-default" id="update4" style="display: none;" >Update Order for Q4</button>
+<button id="quarter4" style="display: none;">Quarter4</button>
+
+<!-- <button id="BAug" >Aug</button>
+<button id="BSep" >Sep</button>
+<button id="BOct" >Oct</button>
+<button id="BNov" >Nov</button>
+<button id="BDec" >Dec</button> -->
+</div>
+</div>
+
+
+
+<div class="container">
+<div class="row" >
+<div class="col-md-6" style="padding-top:50px;">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Order Amont<small> (in 1000s)</small></th>
+      <th>Starting Month</th>
+      
+      <th>Unit Cost<small> (INR)</small></th>
+      <th>Lead Time<small> (months)</small></th>
+      <th>Capacity<small> (in 1000s)</small></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td>Bruce Wayne</td>
+      <td>{{ vendor.monthly_order1 }}</td>
+      <td>{{ vendor.start_month1 }}</td>
+      <td>130</td>
+      <td>4</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Bruce Wayne</td>
+      <td>{{ vendor.monthly_order2 }}</td>
+      <td>{{ vendor.start_month2 }}</td>
+      <td>130</td>
+      <td>4</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>Bruce Wayne</td>
+      <td>{{ vendor.monthly_order3 }}</td>
+      <td>{{ vendor.start_month3 }}</td>
+      <td>130</td>
+      <td>4</td>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="progress">
+<div class="bar"></div>
+</div>
+
+<div class="col-md-6">
+     <div id="graph"  height:200px;></div>
+</div>
+</div>
+</div>
+
+<div class="progress">
+<div class="bar"></div>
+</div>
+
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<h2>Revenues</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Revenue</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Sales</th>
+            <td id ="Sales">1000</td>
+            
+        </tr>
+        <tr>
+            <th>Markdown Sales</th>
+            <td id="MSales">1000</td>
+            
+        </tr>
+        <tr>
+            <th>Total Revenue</th>
+            <td id="TSales">14</td>
+          
+            
+        </tr>
+
+    </tbody>
+</table>
+</div>
+<div class="col-md-6">
+<h2>Costs</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Cost</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Production</th>
+            <td id ="PCost">1000</td>
+            
+        </tr>
+        <tr>
+            <th>Inventory</th>
+            <td id="ICost">1000</td>
+            
+        </tr>
+        <tr>
+            <th>Sum</th>
+            <td id="Sum">14</td>
+          
+            
+        </tr>
+        <tr>
+            <th>Setup</th>
+            <td id="SCost">14</td>
+          
+            
+        </tr>
+        <tr>
+            <th>Change Order</th>
+            <td id="CCost">14</td>
+          
+            
+        </tr>
+        <tr>
+            <th>Total</th>
+            <td id="TTCost">14</td>
+          
+            
+        </tr>
+
+    </tbody>
+</table>
+</div>
+</div>
+<div class="row">
+<div class="col-md-6">
+<h2>Margin</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Cost</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Gross Margin</th>
+            <td id ="GMargin">1000</td>
+            
+        </tr>
+        <tr>
+            <th>Gross Margin %</th>
+            <td id="PMargin">1000</td>
+            
+        </tr>
+        
+
+    </tbody>
+</table>
+</div>
+<div class="col-md-6">
+<a href="{% url 'vendor:board' %}" type="button" id="enter" class="btn btn-primary btn-lg">Enter Board Room</a>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table id="graphtable" style="display:none;">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Unit Cost</th>
+            <th>Lead Time</th>
+            <th>Capacity</th>
+            <th>Setup Costs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Wayne and Bane</th>
+            <td id ="Jan11">13</td>
+            <td id ="JanB">4</td>
+            <td id ="Cap1">45</td>
+            <td >10</td>
+        </tr>
+        <tr>
+            <th>Bob and Mob</th>
+            <td id="FebA">13</td>
+            <td id="FebB">3</td>
+            <td id="Cap2">45</td>
+            <td >20</td>
+        </tr>
+        <tr>
+            <th>Rob and Snob</th>
+            <td id="MarA">14</td>
+            <td id="MarB">1</td>
+            <td id="Cap3">25</td>
+            <td >20</td>
+        </tr>
+
+    </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

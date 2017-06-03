@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}Introduction | {{ block.super }}{% endblock title %}
+
+{% block jquery %}
+
+
+
+$(document).ready(function(){
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"}); $('.img-rounded').css("padding","30px");
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+});
+$('.carousel').carousel({
+    interval: false
+})
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+
+<div class="col-md-8" style="padding:20px;">
+<h2>Meet the team</h2>
+<p> These are the rockstars who help you run the company</p>
+{% include 'new/sliderteam.html' %}
+</div>
+<div class="col-md-4">
+<p></p><p></p><p></p>
+<a href="{% url 'vendor:design' %}" type="button" id="enter" class="btn btn-primary btn-lg">Enter Design Room</a>
+
+</div>
+</div>
+<div class="row">
+<div class="col-md-3">
+<figure class="figure">
+  <img src='{% static "img/Emp1.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><h3>Tom</h3></figcaption></div>
+<div class="col-md-3">
+<figure class="figure">
+  <img src='{% static "img/emp2.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><h3>Claire</h3></figcaption>
+</div><div class="col-md-3"><figure class="figure">
+  <img src='{% static "img/emp3.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><h3>Lisa</h3></figcaption>
+</div><div class="col-md-3"><figure class="figure">
+  <img src='{% static "img/emp4.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><h3>Roy</h3></figcaption></div>
+  <div class="col-md-3"><figure class="figure">
+  <img src='{% static "img/emp4.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
+  <figcaption class="figure-caption"><h3>Renuka</h3></figcaption></div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock content %}

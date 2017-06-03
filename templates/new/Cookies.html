@@ -1,0 +1,41 @@
+<!-- function setCookie(name, value){
+  // Set cookie to `namevalue;`
+  // Won't overwrite existing values with different names
+  document.cookie = name + value + ';';
+}
+
+function getCookie(name){
+  // Split by `;`
+  var cookie = document.cookie.split(";");
+  
+  // iterate over cookie array
+  for(var i  = 0; i < cookie.length; i++){
+    var c = cookie[i];
+    // if it contains string "click"
+    if(/click/.test(c))
+       return true;
+  }
+  // cookie does not exist
+  return false;
+}
+
+// Set clicked to either the existing cookie or false
+var clicked = getCookie("click") || false;
+
+// Check if it was clicked before
+alert(clicked);
+
+// Get the button
+var button = document.getElementById("update");
+
+// If it had been clicked, diable button
+if (clicked) button.disabled = true;
+
+// Add event listener 
+// When button clicked, set `click` cookie to true 
+// and disable button
+button.addEventListener("click", function(){
+  setCookie("click", "true");
+  button.disabled = true;
+}, false);
+ -->

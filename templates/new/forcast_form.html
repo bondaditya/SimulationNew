@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block jquery %}
+
+$(document).ready(function(){
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+});
+
+
+
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+<h2>Submit your forcast<small>  per month </small> </h2>
+<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+{{ form|crispy }}
+<input type='submit' class='btn btn-default' value='Submit' />
+</form>
+</div>
+
+
+<div class="col-md-8">
+<h2></h2>
+        <table class="table">
+        <thead class="thead-default">
+          <tr>
+              <th>Employee</th>
+              {% for item in demand %}
+            <td>{{ item.employee_name }}</td>
+                {% endfor %}
+          </tr>
+          <tr>
+
+
+        <th>Monthly Forcast<small> </small></th>
+        {% for item in demand %}
+        <td>{{ item.monthly_forcast }}</td>
+
+        {% endfor %}
+        </tr>
+        
+        </thead>
+        </table>
+        </div>            
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

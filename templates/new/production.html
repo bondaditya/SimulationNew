@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Production | {{ block.super }}{% endblock title %}
+
+{% block jquery %}
+
+$(document).ready(function(){
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+});
+$('.carousel').carousel({
+    interval: false
+})
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+<h2> Production Room </h2>
+<div class="col-md-8">
+    <p>Congratulations. You have successfully given the board your demand estimates. You now need to make some key decisions on how to fulfill this demand.
+</p><p>
+To increase production flexibility, management has decided to outsource all manufacturing, and you have identified four contract manufacturers.</p>
+</div>
+<div class="col-md-4" style="padding:20px;">
+    <a href="{% url 'vendor:supplyupdate' pk=request.user.id %}" type="button" class="btn btn-primary btn-lg">Choose Suppliers     </a>
+
+
+</div>
+</div>
+
+<div class="row">
+    <h3>Talk to Procurement</h3>
+
+<div class="col-md-6" style="padding:20px;">
+{% include 'new/sliderprod.html' %}
+</div>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-8">
+    <div class="container" id="tourpackages-carousel">
+
+      <div class="row">
+
+        <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src='{% static "img/steve.jpg" %}' alt=""  width="154" height="156">
+              <div class="caption">
+                <h4>	Wayne Enterprises</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src='{% static "img/dwight.jpg" %}' alt=""  width="154" height="156">
+              <div class="caption">
+                <h4>Chopra Company</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-18 col-sm-6 col-md-3">
+          <div class="thumbnail">
+            <img src='{% static "img/fatty.jpg" %}' alt=""  width="154" height="156">
+              <div class="caption">
+                <h4>Carl and Sons</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div><!-- End row -->
+
+    </div><!-- End container -->
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+{% endblock content %}

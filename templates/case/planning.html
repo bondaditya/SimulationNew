@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}	
+
+{% block title %} Planning | {{block.super}}{% endblock title %}
+
+{% block content %}
+
+{% for vendor in vendors %}
+
+	{{ vendor }}
+{% endfor %}
+
+
+
+	<div col-md-4>
+ 	<form method ='POST' action='' > {% csrf_token %}
+ 		{{ form|crispy }}
+ 		<input type = 'submit' value='Save' class= 'btn btn-default' />	
+ 	</form>
+ 	</div>
+ 	<div col-md-4>
+ 	<p> Love you babay</p>
+ 	</div>
+
+
+	<div .col-md-4>
+	<table class="table">
+	    <thead>
+	        <tr>
+	            <th>Row</th>
+	            <th>First Name</th>
+	            <th>Last Name</th>
+	            <th>Email</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr>
+	            <td>1</td>
+	            <td>John</td>
+	            <td>Carter</td>
+	            <td>johncarter@mail.com</td>
+	        </tr>
+	        <tr>
+	            <td>2</td>
+	            <td>Peter</td>
+	            <td>Parker</td>
+	            <td>peterparker@mail.com</td>
+	        </tr>
+	        <tr>
+	            <td>3</td>
+	            <td>John</td>
+	            <td>Rambo</td>
+	            <td>johnrambo@mail.com</td>
+	        </tr>
+	    </tbody>
+	</table>
+
+
+{% endblock content %}

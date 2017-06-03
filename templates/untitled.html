@@ -1,0 +1,242 @@
+
+
+
+var capacity1 = parseInt({{ c1 }})*.001; $('#Cap1').html(capacity1);
+var capacity2 = parseInt({{ c2 }})*.001; $('#Cap2').html(capacity2);
+var capacity3 = parseInt({{ c3 }})*.001; $('#Cap3').html(capacity3);
+
+$(document).ready(function(){
+
+    var M1 = parseInt({{ m1 }});
+    var M2 = parseInt({{ m2 }});
+    var M3 = parseInt({{ m3 }});
+
+    var value = ($('#start_month').attr('start_month'));
+    var s1 = $('#s1').text();
+    var s2 = $('#s2').text();
+    var s3 = $('#s3').text();
+
+    if(s1==="Jan"){var m1 = 1;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1;}
+    else if (s1==="Feb"){var m1 = 0;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Mar"){var m1 = 0;var m2 = 0;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Apr"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="May"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Jun"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Jul"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Aug"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Sep"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Oct"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Nov"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 1;var m12 = 1; }
+    else if (s1==="Dec"){var m1 = 0;var m2 = 1;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 0;var m12 = 1; }
+    var sales1 = M1*m1;var sales2 = M1*m2;var sales3 = M1*m3;var sales4 = M1*m4;var sales5 = M1*m5;var sales6 = M1*m6;var sales7 = M1*m7;var sales8 = M1*m8;
+    var sales9 = M1*m9;var sales10 = M1*m10;var sales11 = M1*m11;var sales12 = M1*m12;
+
+    if(s2==="Jan"){var m1 = 1;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1;}
+    else if (s2==="Feb"){var m1 = 0;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Mar"){var m1 = 0;var m2 = 0;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Apr"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="May"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Jun"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Jul"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Aug"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Sep"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Oct"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Nov"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 1;var m12 = 1; }
+    else if (s2==="Dec"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 0;var m12 = 1; }
+    var dales1 = M2*m1;var dales2 = M2*m2;var dales3 = M2*m3;var dales4 = M2*m4;var dales5 = M2*m5;var dales6 = M2*m6;var dales7 = M2*m7;var dales8 = M2*m8;
+    var dales9 = M2*m9;var dales10 = M2*m10;var dales11 = M2*m11;var dales12 = M2*m12;
+
+    if(s3==="Jan"){var m1 = 1;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1;}
+    else if (s3==="Feb"){var m1 = 0;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Mar"){var m1 = 0;var m2 = 0;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Apr"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="May"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Jun"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Jul"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Aug"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Sep"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Oct"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Nov"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 1;var m12 = 1; }
+    else if (s3==="Dec"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 0;var m12 = 1; }
+    var fales1 = M3*m1;var fales2 = M3*m2;var fales3 = M3*m3;var fales4 = M3*m4;var fales5 = M3*m5;var fales6 = M3*m6;var fales7 = M3*m7;var fales8 = M3*m8;
+    var fales9 = M3*m9;var fales10 = M3*m10;var fales11 = M3*m11;var fales12 = M3*m12;
+    var Sales1 = sales1+dales1+fales1;
+var Sales2 = sales2+dales2+fales2;
+var Sales3 = sales3+dales3+fales3;
+var Sales4 = sales4+dales4+fales4;
+var Sales5 = sales5+dales5+fales5;
+var Sales6 = sales6+dales6+fales6;
+var Sales7 = sales7+dales7+fales7;
+var Sales8 = sales8+dales8+fales8;
+var Sales9 = sales9+dales9+fales9;
+var Sales10 = sales10+dales10+fales10;
+var Sales11 = sales11+dales11+fales11;
+var Sales12 = sales12+dales12+fales12;
+var actsales1 = Math.round(Sales1*Math.random()); var actsales2 = Math.round(Sales2*Math.random()); var actsales3 = Math.round(Sales3*Math.random()); var actsales4 = Math.round(Sales4*Math.random());
+var actsales5 = Math.round(Sales5*Math.random()); var actsales6 = Math.round(Sales6*Math.random()); var actsales7 = Math.round(Sales7*Math.random()); var actsales8 = Math.round(Sales8*Math.random());
+var actsales9 = Math.round(Sales9*Math.random()); var actsales10 = Math.round(Sales10*Math.random()); var actsales11 = Math.round(Sales11*Math.random()); var actsales12 = Math.round(Sales12*Math.random());
+var inv1 = Sales1-actsales1; var inv2 = Sales2-actsales2; var inv3 = Sales3-actsales3; var inv4 = Sales4-actsales4;
+var inv5 = Sales5-actsales5; var inv6 = Sales6-actsales6; var inv7 = Sales7-actsales7; var inv8 = Sales8-actsales8;
+var inv9 = Sales9-actsales9; var inv10 = Sales10-actsales10; var inv11 = Sales11-actsales11; var inv12 = Sales12-actsales12;
+
+
+    $('#Jan1').html(Sales1);$('#Feb1').html(Sales2);$('#Mar1').html(Sales3);$('#Apr1').html(Sales4);$('#May1').html(Sales5);$('#Jun1').html(Sales6);
+    $('#Jul1').html(Sales7);$('#Aug1').html(Sales8);$('#Sep1').html(Sales9);$('#Oct1').html(Sales10);$('#Nov1').html(Sales11);$('#Dec1').html(Sales12);
+    $('#Jan2').html(actsales1);$('#Feb2').html(actsales2);$('#Mar2').html(actsales3);$('#Apr2').html(actsales4);$('#May2').html(actsales5);$('#Jun2').html(actsales6);
+    $('#Jul2').html(actsales7);$('#Aug2').html(actsales8);$('#Sep2').html(actsales9);$('#Oct2').html(actsales10);$('#Nov2').html(actsales11);$('#Dec2').html(actsales12);
+    $('#Jan3').html(inv1);$('#Feb3').html(inv2);$('#Mar3').html(inv3);$('#Apr3').html(inv4);$('#May3').html(inv5);$('#Jun3').html(inv6);
+    $('#Jul3').html(inv7);$('#Aug3').html(inv8);$('#Sep3').html(inv9);$('#Oct3').html(inv10);$('#Nov3').html(inv11);$('#Dec3').html(inv12);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if(mark==='True'){
+    if(sty==='True' && disc==='True' && flav==='True'){var updated_price=price*.9;var updated_cost=cost*1.35;};
+    if(disc==='True' && sty==='True' && flav==='False'){var updated_price=price*.9;var updated_cost=cost*1.25;};
+    if(disc==='True' && sty==='False' && flav==='False'){var updated_price=price*.9;var updated_cost=cost*1.20;};
+    if(disc==='False' && sty==='True' && flav==='False'){var updated_price=price*.9;var updated_cost=cost*1.15;};
+    if(disc==='False' && sty==='False' && flav==='True'){var updated_price=price;var updated_cost=cost*1.20;};
+    if(disc==='False' && sty==='True' && flav==='True'){var updated_price=price;var updated_cost=cost*1.20;};
+    if(disc==='True' && sty==='False' && flav==='True'){var updated_price=price;var updated_cost=cost*1.20;};};
+if(mark==='False'){
+    if(sty==='True' && disc==='True' && flav==='True'){var updated_price=price*.9;var updated_cost=cost*1.25;};
+    if(sty==='True' && disc==='True' && flav==='False'){var updated_price=price*.9;var updated_cost=cost*1.05;};
+    if(sty==='True' && disc==='False' && flav==='False'){var updated_price=price;var updated_cost=cost*1.05;};
+    if(sty==='False' && disc==='False' && flav==='False'){var updated_price=price;var updated_cost=cost;};
+    if(sty==='False' && disc==='False' && flav==='True'){var updated_price=price;var updated_cost=cost*1.1;};
+    if(sty==='True' && disc==='False' && flav==='True'){var updated_price=price;var updated_cost=cost*1.15;};
+    if(sty==='False' && disc==='True' && flav==='True'){var updated_price=price*.9;var updated_cost=cost*1.1;};};
+
+
+var total_vendor_cost = v*(parseInt(updated_cost)); $('#product').html(total_vendor_cost);
+
+
+
+
+
+
+
+    var M1 = parseInt($('#m1').text());
+    var M2 = parseInt($('#m2').text());
+    var M3 = parseInt($('#m3').text());
+
+    var value = ($('#start_month').attr('start_month'));
+    var s1 = $('#s1').text();
+    var s2 = $('#s2').text();
+    var s3 = $('#s3').text();
+
+
+    if(s1==="Jan"){var m1 = 1;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1;}
+    else if (s1==="Feb"){var m1 = 0;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Mar"){var m1 = 0;var m2 = 0;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Apr"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="May"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Jun"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Jul"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Aug"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Sep"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Oct"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s1==="Nov"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 1;var m12 = 1; }
+    else if (s1==="Dec"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 0;var m12 = 1; }
+    var sales1 = M1*m1;var sales2 = M1*m2;var sales3 = M1*m3;var sales4 = M1*m4;var sales5 = M1*m5;var sales6 = M1*m6;var sales7 = M1*m7;var sales8 = M1*m8;
+    var sales9 = M1*m9;var sales10 = M1*m10;var sales11 = M1*m11;var sales12 = M1*m12;
+
+    if(s2==="Jan"){var m1 = 1;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1;}
+    else if (s2==="Feb"){var m1 = 0;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Mar"){var m1 = 0;var m2 = 0;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Apr"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="May"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Jun"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Jul"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Aug"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Sep"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Oct"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s2==="Nov"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 1;var m12 = 1; }
+    else if (s2==="Dec"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 0;var m12 = 1; }
+    var dales1 = M2*m1;var dales2 = M2*m2;var dales3 = M2*m3;var dales4 = M2*m4;var dales5 = M2*m5;var dales6 = M2*m6;var dales7 = M2*m7;var dales8 = M2*m8;
+    var dales9 = M2*m9;var dales10 = M2*m10;var dales11 = M2*m11;var dales12 = M2*m12;
+
+    if(s3==="Jan"){var m1 = 1;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1;}
+    else if (s3==="Feb"){var m1 = 0;var m2 = 1;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Mar"){var m1 = 0;var m2 = 0;var m3 = 1;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Apr"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 1;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="May"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 1;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Jun"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 1;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Jul"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Aug"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 1;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Sep"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 1;var m9 = 1;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Oct"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 1;var m11 = 1;var m12 = 1; }
+    else if (s3==="Nov"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 1;var m12 = 1; }
+    else if (s3==="Dec"){var m1 = 0;var m2 = 0;var m3 = 0;var m4 = 0;var m5 = 0;var m6 = 0;var m7 = 0;var m8 = 0;var m9 = 0;var m10 = 0;var m11 = 0;var m12 = 1; }
+    var fales1 = M3*m1;var fales2 = M3*m2;var fales3 = M3*m3;var fales4 = M3*m4;var fales5 = M3*m5;var fales6 = M3*m6;var fales7 = M3*m7;var fales8 = M3*m8;
+    var fales9 = M3*m9;var fales10 = M3*m10;var fales11 = M3*m11;var fales12 = M3*m12;
+    var Sales1 = sales1+dales1+fales1;
+    var Sales2 = sales2+dales2+fales2;
+    var Sales3 = sales3+dales3+fales3;
+    var Sales4 = sales4+dales4+fales4;
+    var Sales5 = sales5+dales5+fales5;
+    var Sales6 = sales6+dales6+fales6;
+    var Sales7 = sales7+dales7+fales7;
+    var Sales8 = sales8+dales8+fales8;
+    var Sales9 = sales9+dales9+fales9;
+    var Sales10 = sales10+dales10+fales10;
+    var Sales11 = sales11+dales11+fales11;
+    var Sales12 = sales12+dales12+fales12;
+    var actsales1 = Math.round(Sales1*(.7+.3*Math.random())); var actsales2 = Math.round(Sales2*(.7+.3*Math.random())); var actsales3 = Math.round(Sales3*(.7+.3*Math.random())); var actsales4 = Math.round(Sales4*(.7+.3*Math.random()));
+    var actsales5 = Math.round(Sales5*(.7+.3*Math.random())); var actsales6 = Math.round(Sales6*(.7+.3*Math.random())); var actsales7 = Math.round(Sales7*(.7+.3*Math.random())); var actsales8 = Math.round(Sales8*(.7+.3*Math.random()));
+    var actsales9 = Math.round(Sales9*(.7+.3*Math.random())); var actsales10 = Math.round(Sales10*(.7+.3*Math.random())); var actsales11 = Math.round(Sales11*(.7+.3*Math.random())); var actsales12 = Math.round(Sales12*(.7+.3*Math.random()));
+
+    /*Define total sales*/
+    var total_sales = (actsales1+actsales2+actsales3+actsales4+actsales5+actsales6+actsales7+actsales8+actsales9+actsales10+actsales11+actsales12);
+
+    var revenue = total_sales*updated_price; $('#revenue').html(revenue);
+    var inv1 = Sales1-actsales1; var inv2 = Sales2-actsales2; var inv3 = Sales3-actsales3; var inv4 = Sales4-actsales4;
+    var inv5 = Sales5-actsales5; var inv6 = Sales6-actsales6; var inv7 = Sales7-actsales7; var inv8 = Sales8-actsales8;
+    var inv9 = Sales9-actsales9; var inv10 = Sales10-actsales10; var inv11 = Sales11-actsales11; var inv12 = Sales12-actsales12;
+    /*Define total inventory*/
+    var inventory_cost = 10*(inv1+inv2+inv3+inv4+inv5+inv6+inv7+inv8+inv9+inv10+inv11+inv12); $('#inventory').html(inventory_cost);
+    var total_cost = total_vendor_cost+inventory_cost; $('#totalcost').html(total_cost);
+    var profit = revenue-total_cost; $('#profit').html(profit);
+    var profitpercentage = Math.round((profit*100)/revenue); $('#profitpercentage').html(profitpercentage);
+
+    $('#Jan1').html(Sales1);$('#Feb1').html(Sales2);$('#Mar1').html(Sales3);$('#Apr1').html(Sales4);$('#May1').html(Sales5);$('#Jun1').html(Sales6);
+    $('#Jul1').html(Sales7);$('#Aug1').html(Sales8);$('#Sep1').html(Sales9);$('#Oct1').html(Sales10);$('#Nov1').html(Sales11);$('#Dec1').html(Sales12);
+    $('#Jan2').html(actsales1);$('#Feb2').html(actsales2);$('#Mar2').html(actsales3);$('#Apr2').html(actsales4);$('#May2').html(actsales5);$('#Jun2').html(actsales6);
+    $('#Jul2').html(actsales7);$('#Aug2').html(actsales8);$('#Sep2').html(actsales9);$('#Oct2').html(actsales10);$('#Nov2').html(actsales11);$('#Dec2').html(actsales12);
+    $('#Jan3').html(inv1);$('#Feb3').html(inv2);$('#Mar3').html(inv3);$('#Apr3').html(inv4);$('#May3').html(inv5);$('#Jun3').html(inv6);
+    $('#Jul3').html(inv7);$('#Aug3').html(inv8);$('#Sep3').html(inv9);$('#Oct3').html(inv10);$('#Nov3').html(inv11);$('#Dec3').html(inv12);
+    $('#JanA').html(Sales1);$('#FebA').html(Sales2);$('#MarA').html(Sales3);$('#AprA').html(Sales4);$('#MayA').html(Sales5);$('#JunA').html(Sales6);
+    $('#JulA').html(Sales7);$('#AugA').html(Sales8);$('#SepA').html(Sales9);$('#OctA').html(Sales10);$('#NovA').html(Sales11);$('#DecA').html(Sales12);
+    $('#JanB').html(actsales1);$('#FebB').html(actsales2);$('#MarB').html(actsales3);$('#AprB').html(actsales4);$('#MayB').html(actsales5);$('#JunB').html(actsales6);
+    $('#JulB').html(actsales7);$('#AugB').html(actsales8);$('#SepB').html(actsales9);$('#OctB').html(actsales10);$('#NovB').html(actsales11);$('#DecB').html(actsales12);
+    $('#JanC').html(inv1);$('#FebC').html(inv2);$('#MarC').html(inv3);$('#AprC').html(inv4);$('#MayC').html(inv5);$('#JunC').html(inv6);
+    $('#JulC').html(inv7);$('#AugC').html(inv8);$('#SepC').html(inv9);$('#OctC').html(inv10);$('#NovC').html(inv11);$('#DecC').html(inv12);
+
+});

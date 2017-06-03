@@ -1,0 +1,540 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+
+
+
+
+
+{% block jquery %}
+
+
+
+
+
+$(document).ready(function(){
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+});
+$(".checkbox").css({"background-color":"#DC143C","font-size":"30px",  "padding-top": "10px", "padding-left": "40px"}); $('.row').css("padding-top", "25px");
+
+var monthly_forcast1 = 63;
+var monthly_forcast2 = 54;
+var monthly_forcast3 = parseInt({{ mo3 }});
+var monthly_forcast4 = parseInt({{ mo4 }});
+var monthly_forcast5 = 63;
+var price = parseInt({{ product.unit_price }});
+var cost = parseInt({{ product.unit_cost }});
+
+var avg 
+
+
+$(document).ready(function(){
+    $('input[type="checkbox"]').click(function(){
+            if($('#1').is(":checked")){
+            	if($('#2').is(":checked") && $('#3').is(":checked") && $('#4').is(":checked")){
+                        var monthly_forcasta = monthly_forcast1+13;var monthly_forcastb = monthly_forcast2-3;
+                        var monthly_forcastc = monthly_forcast3-28;var monthly_forcastd = monthly_forcast4-2;
+                        var Price = price+52; var Cost = cost+40; var sd = 13;
+                      }
+
+            	else if($('#2').is(":checked") && $('#3').is(":checked") && $('#4').is(":not(:checked)") ){
+            		var monthly_forcasta = monthly_forcast1+3;var monthly_forcastb = monthly_forcast2+9;
+                        var monthly_forcastc = monthly_forcast3-20;var monthly_forcastd = monthly_forcast4-15;
+                        var Price = price+37; var Cost = cost+25; var sd = 9;
+            	}
+            	else if($('#2').is(":checked") && $('#3').is(":not(:checked)") && $('#4').is(":checked") ){
+            		var monthly_forcasta = monthly_forcast1+6;var monthly_forcastb = monthly_forcast2-8;
+                     var monthly_forcastc = monthly_forcast3-15;var monthly_forcastd = monthly_forcast4+9;
+                        var Price = price+32; var Cost = cost+23; var sd = 9;
+            	}
+            	else if($('#2').is(":not(:checked)") && $('#3').is(":checked") && $('#4').is(":checked") ){
+            		var monthly_forcasta = monthly_forcast1+14;var monthly_forcastb = monthly_forcast2-4;
+                        var monthly_forcastc = monthly_forcast3-25;var monthly_forcastd = monthly_forcast4;
+                        var Price = price+47; var Cost = cost+38; var sd = 12;
+            	}
+            	else if($('#2').is(":not(:checked)") && $('#3').is(":not(:checked)") && $('#4').is(":not(:checked)") ){
+            		var monthly_forcasta = monthly_forcast1-3;var monthly_forcastb = monthly_forcast2+3;
+                        var monthly_forcastc = monthly_forcast3-4;var monthly_forcastd = monthly_forcast4-2;
+                        var Price = price+12; var Cost = cost+3; var sd = 2;
+            	}
+            	else if($('#2').is(":not(:checked)") && $('#3').is(":checked") && $('#4').is(":not(:checked)") ){
+            		var monthly_forcasta = monthly_forcast1+7;var monthly_forcastb = monthly_forcast2+5   ;
+                        var monthly_forcastc = monthly_forcast3-13;var monthly_forcastd = monthly_forcast4-11;
+                        var Price = price+32; var Cost = cost+23; var sd = 8;
+            	}
+            	else if($('#2').is(":checked") && $('#3').is(":not(:checked)") && $('#4').is(":not(:checked)") ){
+            		var monthly_forcasta = monthly_forcast1-4;var monthly_forcastb = monthly_forcast2+4;
+                        var monthly_forcastc = monthly_forcast3-7;var monthly_forcastd = monthly_forcast4-4;
+                        var Price = price+17; var Cost = cost+5; var sd = 2;
+            	}
+            	else if($('#2').is(":not(:checked)") && $('#3').is(":checked") && $('#4').is(":not(:checked)") ){
+            		var monthly_forcasta = monthly_forcast1+4;var monthly_forcastb = monthly_forcast2+8;
+                        var monthly_forcastc = monthly_forcast3-17;var monthly_forcastd = monthly_forcast3-11;
+                        var Price = price+20; var Cost = cost+20; var sd = 8;
+            	}
+            	else if($('#2').is(":not(:checked)") && $('#3').is(":not(:checked)") && $('#4').is(":checked") ){
+            		var monthly_forcasta = monthly_forcast1+7;var monthly_forcastb = monthly_forcast2-9;
+                        var monthly_forcastc = monthly_forcast3+12;var monthly_forcastd = monthly_forcast4+8;
+                        var Price = price+15; var Cost = cost+15; var sd = 9;
+            	}
+
+            }
+            if($('#2').is(":checked")){
+            	if($('#1').is(":not(:checked)") && $('#3').is(":checked") && $('#4').is(":checked")){
+                        var monthly_forcasta = monthly_forcast1+16;monthly_forcastb = monthly_forcast2-6;
+                        var monthly_forcastc = monthly_forcast3-24;monthly_forcastd = monthly_forcast4;
+                        var Price = price+40; var Cost = cost+37; var sd = 17;
+                  }
+
+
+            	else if($('#1').is(":not(:checked)") && $('#3').is(":checked") && $('#4').is(":not(:checked)")){
+            		var monthly_forcasta = monthly_forcast1+6;var monthly_forcastb = monthly_forcast2+6;
+                        var monthly_forcastc = monthly_forcast3-13;var monthly_forcastd = monthly_forcast4-16;
+                        var Price = price+25; var Cost = cost+22; var sd = 8;
+}
+            	else if($('#1').is(":not(:checked)") && $('#3').is(":not(:checked)") && $('#4').is(":checked")){
+            		var monthly_forcasta = monthly_forcast1+9;var monthly_forcastb = monthly_forcast2-11;
+                        var monthly_forcastc = monthly_forcast3-11;var monthly_forcastd = monthly_forcast4+11;
+                        var Price = price+20; var Cost = cost+17; var sd = 10;
+            	}
+            	else if($('#1').is(":not(:checked)") && $('#3').is(":not(:checked)") && $('#4').is(":not(:checked)")){
+            		var monthly_forcasta = monthly_forcast1-1;var monthly_forcastb = monthly_forcast2-2;
+                        var monthly_forcastc = monthly_forcast3+3;var monthly_forcastd = monthly_forcast4+2;
+                        var Price = price+5; var Cost = cost+3; var sd = 3;
+            	}
+
+
+
+            }
+            if($('#3').is(":checked")){
+            	if($('#1').is(":not(:checked)") && $('#2').is(":not(:checked)") && $('#4').is(":checked")){
+            		    var monthly_forcasta = monthly_forcast1+17;var monthly_forcastb = monthly_forcast2-21;
+                        var monthly_forcastc = monthly_forcast3-7;var monthly_forcastd = monthly_forcast4+2;
+                        var Price = price+35; var Cost = cost+35; var sd = 12;
+            	}
+            	if($('#1').is(":not(:checked)") && $('#2').is(":not(:checked)") && $('#4').is(":not(:checked)")){
+            		var monthly_forcasta = monthly_forcast1+7;var monthly_forcastb = monthly_forcast2+5;
+                        var monthly_forcastc = monthly_forcast3-11;var monthly_forcastd = monthly_forcast4-13;
+                        var Price = price+20; var Cost = cost+20; var sd = 9;
+            	}
+
+
+
+            }
+            if($('#4').is(":checked")){
+
+            	if($('#1').is(":not(:checked)") && $('#2').is(":not(:checked)") && $('#3').is(":not(:checked)")){
+            		var monthly_forcasta = monthly_forcast1+10;var monthly_forcastb = monthly_forcast2-12;
+                        var monthly_forcastc = monthly_forcast3-8;var monthly_forcastd = monthly_forcast4+13;
+                        var Price = price+15; var Cost = cost+15; var sd = 10;
+            	}
+            }
+
+            if($('#1').is(":not(:checked") && $('#2').is(":not(:checked") && $('#3').is(":not(:checked") && $('#4').is(":not(:checked")){
+            	var monthly_forcasta = monthly_forcast1;var monthly_forcastb = monthly_forcast2;
+                        var monthly_forcastc = monthly_forcast3;var monthly_forcastd = monthly_forcast4;
+                        var monthly_forcaste = monthly_forcast5; var Price = price; var Cost = cost;
+                        var sd = 4;
+
+
+
+            }
+            var PRICE = Math.round(Price); var COST = Math.round(Cost); 
+            var monthly_forcaste = Math.round()
+           
+            $("#emp1b").html(Math.round(monthly_forcasta));$("#emp2b").html(Math.round(monthly_forcastb));$("#emp3b").html(Math.round(monthly_forcastc));
+            $("#emp4b").html(Math.round(monthly_forcastd));$("#emp5b").html(56); $("#price").html(PRICE); $("#cost").html(COST); var Profit = (PRICE-COST);$("#profit").html(Profit);
+            $("#emp1c").html(Math.round(monthly_forcasta));$("#emp2c").html(Math.round(monthly_forcastb));$("#emp3c").html(Math.round(monthly_forcastc));
+            $("#emp4c").html(Math.round(monthly_forcastd));$("#emp5c").html(Math.round(monthly_forcaste));
+             var avg = Math.round((monthly_forcasta+monthly_forcastb+monthly_forcastc+monthly_forcastd)/4); $("#emp6c").html(avg); 
+            var impact_price = Price-price; var impact_cost = Cost-cost; $("#avg").html(avg); 
+            $("#impact_price").html(impact_price); $("#impact_cost").html(impact_cost); $("#impact_profit").html(impact_price-impact_cost); $("#sd").html(sd);
+
+    $(document).ready(function(){
+	Highcharts.chart('graph', {
+    data: {
+        table: 'graphtable'
+    },
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Forcast by the team with and without options'
+    },
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: 'Units'
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+        }
+    }
+
+});
+
+
+        });
+
+
+$(document).ready(function(){
+	Highcharts.chart('colgraph', {
+    data: {
+        table: 'coltable'
+    },
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Data extracted from a HTML table in the page'
+    },
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: 'Units'
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+        }
+    }
+
+});
+
+
+        });
+
+
+});
+});
+
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<div style="display:none;">
+<table id="graphtable">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Basic</th>
+            <th>Updated</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <th id="employee1">{{ e1 }}</th>
+            <td id="emp1a">{{ mo1 }}</td>
+            <td id="emp1b">{{ mo1 }}</td>
+
+        </tr>
+        <tr>
+            <th id="employee2">{{ e2 }}</th>
+            <td id="emp2a">{{ mo2 }}</td>
+            <td id="emp2b">{{ mo2 }}</td>
+
+        </tr>
+        <tr>
+            <th id="employee3">{{ e3 }}</th>
+            <td id="emp3a">{{ mo3 }}</td>
+            <td id="emp3b">{{ mo3 }}</td>
+
+        </tr>
+        <tr>
+            <th id="employee4">{{ e4 }}</th>
+            <td id="emp4a">{{ mo4 }}</td>
+            <td id="emp4b">{{ mo4 }}</td>
+
+        </tr>
+       
+        <tr>
+            <th id="employee5">Consensus</th>
+            <td id="emp5a">63</td>
+            <td id="emp5b">56</td>
+
+        </tr>
+    </tbody>
+</table>
+
+<table id="coltable">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Monthly Forcast <small>  </small></th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+            <th id="employee1">{{ e1 }}</th>
+            <td id="emp1c">{{ mo1 }}</td>
+
+        </tr>
+        <tr>
+            <th id="employee2">{{ e2 }}</th>
+            <td id="emp2c">{{ mo2 }}</td>
+
+        </tr>
+        <tr>
+            <th id="employee3">{{ e3 }}</th>
+            <td id="emp3c">{{ mo3 }}</td>
+
+        </tr>
+        <tr>
+            <th id="employee4">{{ e4 }}</th>
+            <td id="emp4c">{{ mo4 }}</td>
+
+        </tr>
+        
+        <tr>
+            <th id="employee5">Avg</th>
+            <td id="emp6c">10</td>
+
+        </tr>
+    </tbody>
+</table>
+
+</div>
+<div class="container">
+
+
+
+    <div class="row" align="center">
+        <div class="col-md-8">
+
+
+            <div id="graph"  height:400px;></div>
+
+
+
+    </div>
+
+        <div class="col-md-3" align="left">
+            <h3> Choose the option </h3>
+            <small>Your team provies detailed input on each option</small>
+        <div class="checkbox" class="item active"><label><input type="checkbox" id="1" value="yes" >Discount</label></div>
+
+        <div class="checkbox"><label><input type="checkbox" id="2" value="">Flavour</label></div>
+        <div class="checkbox"><label><input type="checkbox" id="3" value="">Marketing</label></div>
+        <div class="checkbox"><label><input type="checkbox" id="4" value="">Style</label></div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        <table class="table">
+        <thead class="thead-default">
+          <tr>
+              <th>Employee</th>
+              {% for item in demand %}
+            <td>{{ item.employee_name }}</td>
+                {% endfor %}
+          </tr>
+          <tr>
+
+
+        <th>Monthly Forcast<small> </small></th>
+        {% for item in demand %}
+        <td>{{ item.monthly_forcast }}</td>
+
+        {% endfor %}
+        </tr>
+        
+        </thead>
+        </table>
+        </div>
+        <div class="col-md-3" align="center" style="padding-top:30px;">
+
+
+            <a href='{% url "vendor:designupdate" pk=request.user.id %}' type="button" class="btn btn-primary btn-lg">Enter Design Room</a>
+
+    </div>
+    </div>
+
+    <div class="row">
+    <div class = "col-md-4">
+            <div style="float:left; width: 100%">
+
+            <h3 style="padding-top:40px;">Estimated Impact <small>Per-Unit</small></h3>
+
+            <table class="table" >
+            <thead class="thead-default">
+            <tr>
+                  <th></th>
+                  <th>Price</th>
+                  <th>Cost</th>
+                  <th>Profit</th>
+            </tr>
+            <tr>
+                  <th></th>
+                  <td id="price">{{ unit_price }}</td>
+                  <td id="cost">{{ unit_cost }}</td>
+                  <td id="profit">70</td>
+            </tr>
+
+            <tr>
+                  <th>Impact Per Unit</th>
+                  <td id="impact_price">15</td>
+                  <td id="impact_cost">0</td>
+                  <td id="impact_profit">0</td>
+            </tr>
+            </thead>
+            </table>
+      </div>
+   <div style="clear:both"></div>
+
+        </div>
+        <div class="col-md-8">
+            <h2> Discussion </h2>
+            {% include 'new/collapse.html' %}
+        </div>
+    </div>
+
+    </div>
+
+<div class="row">
+ <div style="width: 100%;">
+
+
+    <div class="col-md-5">
+
+
+            <div id="colgraph"  height:400px;></div>
+
+
+
+
+
+    </div>
+</div>
+
+    <div class="col-md-7" align="left">
+            <h2>Forcast the demand <small>Here will be a text to explain</small></h2>
+            <p>Congratulations, the design options for the product has been specified.
+                You will now have to predict the total demand for the product line.</p>
+            <p>Your forecasting team members have come up with a consensus for what they believe
+            demand will be for the mobile phone lines.</p>
+            <p>However, the board of your company is interested in your personal estimates as well.</p>
+            <p>The numbers you will forecast after entering the forecasting room will not affect your production schedule,
+            but they will help you later as you determine where and how to source your products.</p>
+    </div>
+
+
+</div>
+<div style="clear:both"></div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+<div class="row" >
+<table class="table" align= "center" style="width: 70%;">
+            <thead class="thead-default">
+            <tr>
+                  <th></th>
+                  <th>Consensus</th>
+                  <th><b>Avg</b></th>
+                  <th>SD</th>
+                  
+            </tr>
+            <tr>
+                  <th>Without Option</th>
+                  <td>63</td>
+                  <td >60</td>
+                  <td >4</td>
+                  
+            </tr>
+
+            <tr>
+                  <th>With Option</th>
+                  <td>56</td>
+                  <td id="avg">60</td>
+                  <td id="sd">4</td>
+                  
+            </tr>
+            </thead>
+            </table>
+            </div>
+<div class="row">
+<div align="left" style="padding:30px;">
+        <h3>Enter Your Demand Estimates</h3>
+        <p>This is your forecast for what monthly demand will be each month from Jan through December.</p>
+        <a href="{% url 'vendor:forcastupdate' pk=request.user.id %}" type="button" class="btn btn-primary btn-lg">Submit your forcast for the demand</a>
+
+</div>
+    
+</div>
+</div>            
+<div class="col-md-6" align="left">
+<h3>Unit Data with Options as Chosen</h3>
+<p>costs are an estimate from the lowest-cost contract manufacturer</p>
+<table class="table" align="center" style="width: 35%;">
+            <thead class="thead-default">
+           
+            <tr>
+                  <th>Unit Price</th>
+                  <td>63</td>
+                  
+                  
+            </tr>
+
+            <tr>
+                  <th>Unit Price</th>
+                  <td>56</td>
+                  
+                  
+            </tr>
+            <tr>
+                  <th>Unit Profit</th>
+                  <td>56</td>
+                  
+                  
+            </tr>
+            
+            
+            
+            <tr>
+                  <th>Markdown Price*</th>
+                  <td>56</td>
+                  
+                  
+            </tr>
+            <tr>
+                  <th>Inventory Cost</th>
+                  <td>56</td>
+                  
+                  
+            </tr>
+
+            </thead>
+            </table>
+            <p>*at the end of the year, all models left in stock will be sold to a consolidator at this price</p>
+            </div>        
+    
+</div>
+</div>
+</div>
+
+
+
+
+
+{% endblock content %}

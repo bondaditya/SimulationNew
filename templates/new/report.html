@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+
+
+{% block jquery %}
+
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+$(document).ready(function() {
+    $('#demo').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+$(document).ready(function(){
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+});
+
+
+
+
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="container">
+  <h2>Report Table</h2>
+  <p>Click on the button to export the report file</p>            
+  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+      	
+        <th>Student Name</th>
+        <th>Style</th>
+        <th>Discount</th>
+        <th>Flavour</th>
+        <th>Marketing</th>
+       
+       </tr>
+    </thead>
+    <tbody>
+      <tr>
+      {% for user in users %}
+      	
+        <td>{{ user.username }}</td>
+        
+     
+        <td>{{ user.product.style }}</td>
+        <td>{{ user.product.storage }}</td>
+        <td>{{ user.product.extended_battery }}</td>
+        <td>{{ user.product.durability }}</td>
+        
+        
+        </tr>
+        {% endfor %}
+
+        </tbody>
+        </table>
+
+       <table id="demo" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+      <tr>
+   
+
+        <th>Student Name</th>
+        <th>Vednor 1</th>
+        <th>Start Month</th>
+        <th>Vendor 2</th>
+        <th>Start Month</th>
+        <th>Vendor 3</th>
+        <th>Start Month</th>
+        <th>Demand Forcast</th>
+
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for user in users %}
+        
+        <td>{{ user.username }}</td>
+        
+        <td>{{ user.vendor.monthly_order1 }}</td>
+        <td>{{ user.vendor.start_month1 }}</td>
+        <td>{{ user.vendor.monthly_order2 }}</td>
+        <td>{{ user.vendor.start_month2 }}</td>
+        <td>{{ user.vendor.monthly_order3 }}</td>
+        <td>{{ user.vendor.start_month3 }}</td>
+       
+        
+        <td>{{ user.forcast.forcast }}</td>
+        
+      </tr>         
+        
+        {% endfor %}
+      </tbody>
+      </table>
+      </div>
+
+   
+  
+
+
+
+
+
+{% endblock %}

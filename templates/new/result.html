@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+
+{% block jquery %}
+
+
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+
+
+$(document).ready(function(){
+var cost = parseInt($('#unit_cost').text());
+var price = parseInt($('#unit_price').text());
+var mark = $('#marketing').text();
+var sty = $('#style').text();
+var disc = $('#discount').text();
+var flav = $('#flavour').text();
+var v1 = parseInt({{ m1 }});var v2 = parseInt({{ m2 }});var v3 = parseInt({{ m3 }});
+var v = (v1+v2+v3)*12;
+
+
+
+
+$(document).ready(function(){
+	Highcharts.chart('Graph', {
+    data: {
+        table: 'GraphTable'
+    },
+    chart: {
+        type: 'line'
+    },
+    title: {
+        text: 'Data extracted from a HTML table in the page'
+    },
+    yAxis: {
+        allowDecimals: false,
+        title: {
+            text: 'Units'
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.series.name + '</b><br/>' +
+                this.point.y + ' ' + this.point.name.toLowerCase();
+        }
+    }
+
+});
+
+
+});
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+    <div class="col-md-8">
+    <div id="Graph" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+</div>
+<div class="col-md-4">
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th></th>
+      <th>Cost Value</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Product</th>
+      <td id="product">item</td>
+
+    </tr>
+    <tr>
+      <th>Inventory</th>
+      <td id="inventory">item</td>
+
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td id="totalcost">item</td>
+
+    </tr>
+    <tr>
+      <th></th>
+      <td ></td>
+
+    </tr>
+     <tr>
+      <th></th>
+      <td ></td>
+
+    </tr>
+    <tr>
+      <th></th>
+      <th >Revenue</th>
+
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td id="revenue">item</td>
+
+    </tr>
+    <tr>
+      <th></th>
+      <td ></td>
+
+    </tr>
+     <tr>
+      <th></th>
+      <td ></td>
+
+    </tr>
+    <tr>
+      <th>Margin</th>
+      <td id="profit">item</td>
+
+
+    </tr>
+    <tr>
+        <th>Profit Margin(%)</th>
+        <td id="profitpercentage">item</td>
+
+    </tr>
+
+  </tbody>
+
+</table>
+</div>
+
+
+
+</div>
+<div class="row">
+<div id="t1" class="col-md-8">
+    <h3> Yearly Planning </h3>
+    <h4> Actual Demand| Projections </h4>
+    <p> in thousands per month</p>
+
+    <table class="table" id="table1">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Jan</th>
+      <th>Feb</th>
+      <th>Mar</th>
+      <th>Apr</th>
+      <th>May</th>
+      <th>Jun</th>
+      <th>Jul</th>
+      <th>Aug</th>
+      <th>Sep</th>
+      <th>Oct</th>
+      <th>Nov</th>
+      <th>Dec</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Ordered</th>
+      <td id="Jan1">Mark</td>
+      <td id="Feb1">Otto</td>
+      <td id="Mar1">@mdo</td>
+      <td id="Apr1">Mark</td>
+      <td id="May1">Otto</td>
+      <td id="Jun1">@mdo</td>
+      <td id="Jul1">Mark</td>
+      <td id="Aug1">Otto</td>
+      <td id="Sep1">@mdo</td>
+      <td id="Oct1">Mark</td>
+      <td id="Nov1">Otto</td>
+      <td id="Dec1">@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">Sales</th>
+      <td id="Jan2">Mark</td>
+      <td id="Feb2">Otto</td>
+      <td id="Mar2">@mdo</td>
+      <td id="Apr2">Mark</td>
+      <td id="May2">Otto</td>
+      <td id="Jun2">@mdo</td>
+      <td id="Jul2">Mark</td>
+      <td id="Aug2">Otto</td>
+      <td id="Sep2">@mdo</td>
+      <td id="Oct2">Mark</td>
+      <td id="Nov2">Otto</td>
+      <td id="Dec2">@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">Inventory</th>
+      <td id="Jan3">Mark</td>
+      <td id="Feb3">Otto</td>
+      <td id="Mar3">@mdo</td>
+      <td id="Apr3">Mark</td>
+      <td id="May3">Otto</td>
+      <td id="Jun3">@mdo</td>
+      <td id="Jul3">Mark</td>
+      <td id="Aug3">Otto</td>
+      <td id="Sep3">@mdo</td>
+      <td id="Oct3">Mark</td>
+      <td id="Nov3">Otto</td>
+      <td id="Dec3">@mdo</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="col-md-4">
+    <a href="{% url 'vendor:board' %}" class="btn btn-primary btn-lg" role="button">Meet the Board</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+<div class="container" style="display:none;">
+    <div class ="row">
+        <div class= "col-md-6">
+
+<h1 id="forcast">{{ demand.monthly_forcast_update }}</h1>
+<h1 id="forcast">{{ demand.monthly_forcast }}</h1>
+
+
+
+
+<h1 id="marketing">{{ item.marketing }}</h1>
+<h1 id="discount">{{ item.discount }}</h1>
+<h1 id="style">{{ item.style }}</h1>
+<h1 id="flavour">{{ item.flavour }}</h1>
+<h1 id="unit_cost">{{ item.unit_cost }}</h1>
+<h1 id="unit_price">{{ item.unit_price }}</h1>
+<h1 id="Jan1">aaa</h1>
+
+
+</div>
+    </div>
+    </div>
+
+{{ users }}
+
+<div>
+    <div style="display:none;">
+
+<div id = "m1" >{{ m1 }}</div>
+<div id = "m2" >{{ m2 }}</div>
+<div id = "m3" >{{ m3 }}</div>
+<div id = "s1" >{{ sm1 }}</div>
+<div id = "s2" >{{ sm2 }}</div>
+<div id = "s3" >{{ sm3 }}</div>
+
+<table id="GraphTable">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Production</th>
+            <th>Sales</th>
+            <th>Inventory</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Jan</th>
+            <td id ="JanA">1</td>
+            <td id ="JanB">s2</td>
+            <td id ="JanC">3</td>
+        </tr>
+        <tr>
+            <th>Feb</th>
+            <td id="FebA">3</td>
+            <td id="FebB">4</td>
+            <td id="FebC">4</td>
+        </tr>
+        <tr>
+            <th>Mar</th>
+            <td id="MarA">3</td>
+            <td id="MarB">4</td>
+            <td id="MarC">4</td>
+        </tr>
+        <tr>
+            <th>April</th>
+            <td id="AprA">3</td>
+            <td id="AprB">4</td>
+            <td id="AprC">4</td>
+        </tr>
+        <tr>
+            <th>May</th>
+            <td id="MayA">3</td>
+            <td id="MayB">4</td>
+            <td id="MayC">4</td>
+        </tr>
+        <tr>
+            <th>Jun</th>
+            <td id="JunA">3</td>
+            <td id="JunB">4</td>
+            <td id="JunC">4</td>
+        </tr>
+        <tr><th>Jul</th>
+            <td id="JulA">Jul</td>
+            <td id="JulB">3</td>
+            <td id="JulC">4</td>
+
+        </tr>
+        <tr>
+            <th>Aug</th>
+            <td id="AugA">3</td>
+            <td id="AugB">4</td>
+            <td id="AugC">4</td>
+        </tr>
+        <tr>
+            <th>Sep</th>
+            <td id="SepA">3</td>
+            <td id="SepB">4</td>
+            <td id="SepC">4</td>
+        </tr>
+        <tr>
+            <th>Oct</th>
+            <td id="OctA">3</td>
+            <td id="OctB">4</td>
+            <td id="OctC">4</td>
+        </tr>
+        <tr>
+            <th>Nov</th>
+            <td id="NovA">3</td>
+            <td id="NovB">4</td>
+            <td id="NovC">4</td>
+        </tr>
+        <tr>
+            <th>Dec</th>
+            <td id="DecA">3</td>
+            <td id="DecB">4</td>
+            <td id="DecC">4</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+{% endblock content %}
+

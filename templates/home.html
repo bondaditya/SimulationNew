@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block jquery %}
+
+$(document).ready(function(){
+
+$("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
+$("h3").css({"font-size":"175%", "color":"#008080"});
+$("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
+});
+
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+    <h2>Hello, {{ user.username }} </h2>
+
+    
+
+<div class="row">
+    <div class="spacer">
+
+    <div class="col-md-6">
+        <h3> Welcome to the case simulation of Global Supply Chain Management</h3>
+        <p>  We'll be working on this project to give you an idea of what's it like to run a company and manage the supply chain.   </p>
+        <p> You'll be learning the followings</p>
+        <div id="list">
+        <li> Manage a team  </li>
+        <li> Manage suppliers </li>
+        <li> Manage Company Budget</li>
+        <li> Make decision using analytics </li>
+        <li> <a href ="#">Click to see overview of simulation goals and experience</a></li>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <p></p>
+        <p></p>
+
+        <a href="{% url 'vendor:profileupdate' pk=request.user.id %}" type="button" class="btn btn-primary btn-lg">Click to start the simulation</a>
+        <p></p>
+
+
+    </div>
+
+    <div class="col-md-6">
+        <p></p>
+
+        <h3><a href ="#">Click to see the teaching notes</a> <small> Instructor guide to the simulation.</small></h3>
+        <p></p>
+
+
+    </div>
+    <div class="col-md-6">
+
+        <h3><a href="#">Simulation Previews</a></h3> <small> Quick views of the simulation from the student or instructor perspective. The administrator view includes sample
+        student data.</small>
+
+    </div>
+
+
+
+
+
+</div>
+</div>
+</div>
+{% endif %}
+{% endblock content %}

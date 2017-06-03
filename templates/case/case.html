@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+{% block content %}
+<link rel = 'stylesheet' href='{% static "css/base.css" %}'/>
+<div class="col">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src='{% static "img/iima.png" %}' alt="IIMA" />
+      <div class="caption">
+        <h1>Golbal Supply Chain Management</h1>
+        <p>...</p>
+        <p><a href="{% url 'case:case_intro' %}" class="btn btn-primary" role="button">Play</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="basic/iima.png" alt="...">
+      <div class="caption">
+        <h3>Marketing Strategy Case</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Play</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="basic/iima.png" alt="...">
+      <div class="caption">
+        <h3>Logistic Strategy Case</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Play</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{%  endblock %}
