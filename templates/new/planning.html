@@ -6,15 +6,24 @@
 {% block content %}
 <div class='row'>
     <div class='col-sm-8 col-sm-offset-2'>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 0bf8b819a898f865f77233b064c71891fa814275
     </div>
     </div>
 
 <table class="table">
   <thead class="thead-default">
 
+<<<<<<< HEAD
   <tr>
 
+=======
+  <tr>     
+    
+>>>>>>> 0bf8b819a898f865f77233b064c71891fa814275
       <th>Employee</th>
       <th>Demand Forcast</th>
       <th>Unit Cost</th>
@@ -23,6 +32,7 @@
   {% for item in vendor %}
     <tr>
         <th>{{ item.name }}</th>
+<<<<<<< HEAD
         <td>{{ item.monthly_order }}</td><td><a href="{% url 'vendor:update' id=item.id %}">Update</a></td>
         <td>{{ item.unit_cost }}</td>
         <td>{{ item.total }}</td>
@@ -40,6 +50,25 @@
 
   </tbody>
 </table>
+=======
+        <td>{{ item.monthly_order }}</td><td><a href="{% url 'vendor:update' id=item.id %}">Update</a></td>  
+        <td>{{ item.unit_cost }}</td>
+        <td>{{ item.total }}</td>
+      
+      
+    </tr>
+   {% endfor %} 
+  </thead>
+  <tbody>
+  
+    
+    
+
+   
+    
+  </tbody>
+</table>    
+>>>>>>> 0bf8b819a898f865f77233b064c71891fa814275
 
 
 

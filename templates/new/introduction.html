@@ -1,25 +1,24 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
 {% block title %}Introduction | {{ block.super }}{% endblock title %}
 {% block jquery %}
 
-$(document).ready(function(){
 
 $("h2").css({"font-style":"italic", "font-size":"175%", "color":"#696969"});
 $("h3").css({"font-size":"175%", "color":"#008080"});
 $("p").css("color", "#2F4F4F"); $("li").css("color", "#CD5C5C");$("li").css("font-style", "bold");$("small").css({"font-style":"italic", "color":"#696969"});
-});
-$('.carousel').carousel({
-    interval: false
-})
+
 
 
 {% endblock %}
 
 
+
 {% block content %}
 <div class="container">
 <div class="raw">
+
 <h2> Introduction </h2>
 <div class="col-md-8">
 <h3> Introduction to play the game </h3>
@@ -30,9 +29,11 @@ $('.carousel').carousel({
 
 <a href="{% url 'vendor:team' %}" type="button" class="btn btn-primary btn-lg">Meet the Team</a>
 
+
 </div>
 </div>
 <div class="row">
+
 <div class="col-md-8" style="padding:30px;">
 <h3>Problem facing supply chain managers</h3>
 <p></p>
@@ -118,6 +119,7 @@ $('.carousel').carousel({
       </tbody>
       </table>
       </div>
+
 
 
 

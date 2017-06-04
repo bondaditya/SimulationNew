@@ -22,6 +22,7 @@ from .views import HomeView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', HomeView.as_view(), name='home'),
+
     url(r'^new/', include('new.urls', namespace='vendor')),
     url(r'^accounts/', include('allauth.urls')),
     #url(r'^invitations/accept-invite/(?P<key>\w+)/?$', AcceptInviteView.as_view(), name='accept-invite'),
@@ -29,4 +30,16 @@ urlpatterns = [
 
 
 
+
+
+    
+    url(r'^new/', include('new.urls', namespace='vendor')),
+    url(r'^accounts/', include('allauth.urls')), 
+    	
+
+
 ]
+
+if settings.DEBUG:
+	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

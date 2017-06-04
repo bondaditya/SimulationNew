@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load staticfiles %}
 
 {% block title %}Introduction | {{ block.super }}{% endblock title %}
@@ -33,9 +34,11 @@ $('.carousel').carousel({
 <p></p><p></p><p></p>
 <a href="{% url 'vendor:design' %}" type="button" id="enter" class="btn btn-primary btn-lg">Enter Design Room</a>
 
+
 </div>
 </div>
 <div class="row">
+
 <div class="col-md-3">
 <figure class="figure">
   <img src='{% static "img/Emp1.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
@@ -50,19 +53,13 @@ $('.carousel').carousel({
 </div><div class="col-md-3"><figure class="figure">
   <img src='{% static "img/emp4.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
   <figcaption class="figure-caption"><h3>Roy</h3></figcaption></div>
-  <div class="col-md-3"><figure class="figure">
-  <img src='{% static "img/emp4.jpg" %}' class="figure-img img-fluid rounded" alt="Jason." width="154" height="156">
-  <figcaption class="figure-caption"><h3>Renuka</h3></figcaption></div>
+  
+
 </div>
 </div>
 </div>
 
+{% endblock %}
 
 
 
-
-
-
-
-
-{% endblock content %}
